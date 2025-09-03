@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>New Opportunity</title>
+ 
+</head>
+<body>
+  <h2>Add New Opportunity</h2>
+  <form id="oppForm">
+    <input type="hidden" name="OrgID" id="OrgID">
+    <label>Opportunity Name: <input type="text" name="OppName" required></label><br>
+    <label>Start Date: <input type="date" name="OppStartDate"></label><br>
+    <label>Length: 
+      <select name="OppLength">
+        <option value="1 day">1 day</option>
+        <option value="1 week">1 week</option>
+        <option value="1 month">1 month</option>
+        <option value="ongoing">Ongoing</option>
+      </select>
+    </label><br>
+    <label>Description:<br><textarea name="OppDesc" maxlength="255"></textarea></label><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxkTnD46JFtVUamPsq5zygwVkZ4z4VnIyPsRo4cPpm6L9GNnFqBMuBe48tro-GRhIdybQ/exec";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById("OrgID").value = urlParams.get("orgId") || "";
+
+    document.getElementById("oppForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(e.target));
+      formData.type = "opp";
+
+      await fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(formData)
+      });
+
+      alert("Opportunity submitted!");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Organization</title>
+   <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+    background-color: rgb(230, 250, 234);
+    font-family: sans-serif
+    }
+    input[type=text],[type=url] {
+      width: 35em;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    input[type=textarea] {
+      width: 35em;
+      height: 5em;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+ 
+    select{
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    label {
+    color: maroon;
+    margin-left: 40px;
+    display:block;
+    width:20em;
+    }
+</style>
+</head>
+<body>
+  <h2>Add New Organization</h2>
+  <p>Use this form to add a new nature based organization. Location data will allow your organization to appear on a map. </p>
+
+  <form id="orgForm">
+    <label for="Org">Org Name: <input type="text" name="Org" required></label><br>
+    <label for="HostOrg">Host Org?: <input type="checkbox" name="HostOrg"></label><br><br>
+    <label for="OrgURL">Org URL: <input type="url" name="OrgURL" required></label><br>
+    <label>About: <textarea name="About" maxlength="255" required></textarea></label><br><br>
+    <label>Location Name (optional): <input type ="text" name="LocationName"></label><br>
+    <label>Street: <input type="text" name="Street"></label><br>
+    <label>City: <input type="text" name="City"></label>       <label>State: 
+      <select name="State">
+        <option value="">Select</option>
+        <option>WI</option>
+        <option>MN</option>
+        <option>MI</option>
+        <!-- add more states -->
+      </select>
+    </label>
+    <label>Zip: <input type="text" name="Zip"></label><br><br>
+    <label>Has Volunteer Opportunities: <input type="checkbox" name="HasOpp"></label> 
+    <label> URL for opportunities: <input type="url" name="OppUrl"></label><br><br>
+    <label>Has Training Events: <input type="checkbox" name="HasEvents"></label>  <label>Online available: <input type="checkbox" name="HasSelfPaced"></label>
+    <label> URL for Training: <input type="url" name="LearningUrl"></label><br><br>
+    
+    <label>Submitted by: <input type=email name="SubmittedBy"></label><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    const form = document.getElementById("orgForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      data.Type = "Org";
+      try {
+        const res = await fetch("https://script.google.com/macros/s/AKfycbxkTnD46JFtVUamPsq5zygwVkZ4z4VnIyPsRo4cPpm6L9GNnFqBMuBe48tro-GRhIdybQ/exec", {
+          method: "POST",
+          mode: "cors",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" }
+        });
+        const json = await res.json();
+        document.getElementById("result").innerText = json.message;
+      } catch (err) {
+        document.getElementById("result").innerText = "Error: " + err;
+      }
+    });
+  </script>
+</body>
+</html>
+

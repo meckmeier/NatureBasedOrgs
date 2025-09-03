@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Add Event</title>
+</head>
+<body>
+  <h2>Add Event</h2>
+  <form id="eventForm">
+    <label>OrgID (from search): <input type="text" name="OrgID" required></label><br>
+    <label>Event Name: <input type="text" name="EventName" required></label><br>
+    <label>Event Date: <input type="date" name="EventDate" required></label><br>
+    <label>Description (max 255 chars):<br>
+      <textarea name="EventDesc" maxlength="255"></textarea>
+    </label><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById("eventForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      formData.append("Type", "Event");
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxkTnD46JFtVUamPsq5zygwVkZ4z4VnIyPsRo4cPpm6L9GNnFqBMuBe48tro-GRhIdybQ/execc", {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+      document.getElementById("result").innerText = JSON.stringify(result);
+    });
+  </script>
+</body>
+</html>
