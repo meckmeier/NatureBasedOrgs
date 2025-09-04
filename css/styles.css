@@ -1,38 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family:  "Fira Sans", sans-serif;
   background: #24408e10;
-
   margin: 0;
   padding: 1rem;
 }
+
 header{
   text-align: center;
   margin-bottom: 2em;
 }
+
 h1 {
   font-size: 2.3rem;
   color: #333;
   margin: 0.5rem 0;
 }
 
- .card-container {
- display: grid;
-  grid-template-columns: 100%;
-  gap: 1rem;
-
-  margin: 0 5%;
-
-}
-
-.card {
-  background: #fff;
-  padding: 1rem;
-  /*border-top: solid black 1px;*/
-}
-.card-col{
-  display:grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+h2 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
 }
 
 p
@@ -44,15 +34,32 @@ p.location{
   font-style: normal;
   padding-bottom: 2em;
 }
-.card h2 {
-  margin-top: 1.5rem;
-  font-size: 1.5rem;
+
+
+ .card-container {
+ display: grid;
+  grid-template-columns: 100%;
+  gap: 1rem;
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  /*border-top: solid black 1px;*/
+}
+
+.card-col{
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
 }
 
 .card p {
   margin: 0.5rem 0;
   font-size: 0.9rem;
-
 }
 
 .collapse-btn {
@@ -72,14 +79,6 @@ p.location{
   background: #f0f8ff;
   display: none;
 }
-.content {
-  display: none;      /* ensures collapsed by default */
-  padding: 6px 12px;
-  background-color: #f9f9f9;
-  border-left: 2px solid #ddd;
-   font-size: .8rem
-}
-
 
 .hidden{
   display: none;
@@ -203,4 +202,25 @@ button:hover {
   font-family: "Fira Sans", sans-serif;
   font-weight: 900;
   font-style: italic;
+}
+#sidebar {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  background: #fff;
+  margin-top:20px;
+  font-size: .8em;
+}
+
+/* Expanded sidebar */
+#sidebar.active {
+  width: 25%;
+  padding: 20px 20px;
+}
+
+
+
+#mainpage{
+  display:flex;
+  transition: all 0.3s ease;
 }

@@ -124,3 +124,11 @@ function enableCollapsibles() {
 
 // --- Start loading data ---
 loadData();
+
+const toggleBtn = document.getElementById('filter-toggle');
+const sidebar = document.getElementById('sidebar');
+
+
+toggleBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
