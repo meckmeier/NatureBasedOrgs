@@ -16,43 +16,6 @@ async function loadData() {
   renderCards(orgs);
 }
 
-//
-// --- Load CSV via PapaParse ---
-//function fetchCSV(url) {
-  //return new Promise((resolve, reject) => {
-    //Papa.parse(url, {
-      //download: true,
-      //header: true,
-      //complete: results => resolve(results.data),
-      //error: err => reject(err)
-    //});
-  //});
-//}
-
-//async function loadData() {
-//  try {
-//    // Fetch all tabs in parallel
-//    const [orgs, trainings, opps, selfpaced] = await Promise.all([
-//      fetchCSV(URLS.Organization),
-//      fetchCSV(URLS.TrainingEvent),
-//      fetchCSV(URLS.Opportunity),
-//      fetchCSV(URLS.SelfPacedTraining)
-//    ]);
-
-    // Join children onto orgs
-//    orgs.forEach(org => {
-//      const orgName = org.Organization?.trim();
-//      org.trainings = trainings.filter(t => t.Org?.trim() === orgName);
-//      org.opportunities = opps.filter(o => o.Org?.trim() === orgName);
-//     org.selfpaced = selfpaced.filter(s => s.Org?.trim() === orgName);
-//    });
-
-//    console.log("Organizations with children:", orgs);
-//    renderCards(orgs);
-//  } catch (err) {
-//    console.error("Error loading data:", err);
-//  }
-//}
 
 // --- Render org cards with collapsibles ---
 function renderCards(orgs) {
@@ -79,20 +42,20 @@ function renderCards(orgs) {
     }
 
     addCollapsible("Volunteer", org.opportunities, o =>
-      `<li class="opp">${o.DateStart ?  o.DateStart  : ""} ${o.DateEnd ? " -" + o.DateEnd  : ""}
+      `<li class="opp">${o.DateStart ?  o.DateStart.substring(5, 10)  : ""} ${o.DateEnd ? " -" + o.DateEnd.substring(5, 10)  : ""}
          ${o.Title || "Unnamed Opportunity"} 
          <p>${o.Description || ""}</li>
         `
     );
 
     addCollapsible("Training", org.trainings, t =>
-      `<li class="trn">${t.Title || "Training"}  ${t.Date ? " (" + t.Date + ")" : ""}
-      </li>`
+      `<li class="trn"> ${t.Date ?  t.Date.substring(5,10) : ""} ${t.Series ? t.Series  + ": " :""}  ${t.Title || "Training"} 
+      <p>${t.Description || ""} ${t.RegistrationURL ? "<a href='" + t.RegistrationURL + "' target='_blank'>Registration</a>" : ""} </li>`
     );
 
     addCollapsible("Self-Paced", org.selfpaced, s =>
-      `<li class="selfp">${s.Title || "Course"} ${s.Link ? ` - <a href="${s.Link}" target="_blank">Link</a>` : ""}
-      </li>`
+      `<li class="selfp">${s.Title || "Course"} ${s.Link ? "- <a href=" + s.Link + " target='_blank'>Link</a>" : ""}
+      <p>${s.Description || ""} </li>`
     );
 
 /* html += `</div>`
