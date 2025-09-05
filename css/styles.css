@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family:  "Fira Sans", sans-serif;
+  font-family:  "MuliFont", sans-serif;
   background: #24408e10;
   margin: 0;
   padding: 1rem;
@@ -224,6 +224,10 @@ button:hover {
   transition: all 0.3s ease;
 }
 
+@font-face {
+font-family: 'MuliFont';
+src: url('Muli/muli.ttf') format('truetype');
+}
 
 /* === MOBILE (overlay mode) === */
 @media (max-width: 768px) {

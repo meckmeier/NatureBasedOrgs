@@ -13,39 +13,35 @@
 <body>
    <header>
     <img src="./images/wisconsin-master-naturalist.svg" alt="Wisconsin Master Naturalist" style="width:200px">
+    
+    <h1>Nature Based Organizations</h1>
     <nav>
-      <h1>Nature Based Organizations</h1>
-      <button id="filter-toggle">Filters</button>
-      <button id="mapViewBtn">Other task</button>
-      <button id="calViewBtn">Other task</button>
+      <button id="filter-toggle">Filter</button>
       <button  onclick="window.location.href='https://apps.ideal-logic.com/masternaturalist'"">Master Naturalist Portal</button>
       <button  onclick="window.location.href='https://wimasternaturalist.org/'" target="_blank">Master Naturalist home</button>
     </nav>
     </header>
     <main id="mainpage">
        <aside id="sidebar" class="active">
+       
           <h2> &#128270; Filter</h2>
           <label>Region: <select id="regionFilter">
-              <option value="all">All</option>
-              <option value="North">North</option>
-              <option value="South">South</option>
-              <option value="Central">Central</option>
+              <option value="all">All Regions</option>
             </select></label><br><br>
           <label>County: <select id="countyFilter">
-              <option value="all">All</option>
-              <option value="Dane">Dane</option>
-              <option value="Barron">Barron</option>
+            <option value="all">All Counties</option>
             </select></label><br><br>
           <label for="about">search in About
-              <input type="text" id="about" name="about" style="width:100%;padding:5px;">
+              <input type="text" id="aboutFilter" name="about" style="width:100%;padding:5px;">
           </label><br><br>
           <label for="organization">search in Organization
-              <input type="text" id="organization" name="organization" style="width:100%;padding:5px;">
+              <input type="text" id="orgFilter" name="organization" style="width:100%;padding:5px;">
           </label><br><br>
-          <label for="hasOpps"><input type="checkbox" id="hasOpps">Has Volunteer Opportunities</label><br>
-          <label for="hasTraining"><input type="checkbox" id="hasTraining">Has Training Events</label><br>
-          <label for="hasSelfPaced"><input type="checkbox" id="hasSelfPaced">Has Self Paced Training</label><br>   
+          <label for="hasOpps"><input type="checkbox" id="chkOpps">Has Volunteer Opportunities</label><br>
+          <label for="hasTraining"><input type="checkbox" id="chkTraining">Has Training Events</label><br>
+          <label for="hasSelfPaced"><input type="checkbox" id="chkSelfPaced">Has Self Paced Training</label><br>   
         </aside>
+ 
       <div id="cards" class="card-container"></div>
     </main>
   <script src="script.js"></script>
