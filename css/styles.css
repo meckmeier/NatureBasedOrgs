@@ -236,6 +236,7 @@ src: url('Muli/muli.ttf') format('truetype');
   }
   .card-col {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   #sidebar {
