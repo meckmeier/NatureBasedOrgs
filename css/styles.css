@@ -234,6 +234,9 @@ src: url('Muli/muli.ttf') format('truetype');
   #mainpage {
     display: block; /* sidebar not part of layout */
   }
+  .card-col {
+    grid-template-columns: 1fr;
+  }
 
   #sidebar {
     position: fixed;
