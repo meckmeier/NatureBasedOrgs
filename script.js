@@ -100,7 +100,6 @@ chkSelfPaced.addEventListener("change", applyFilters);
 });
 
 
-
 // --- Render org cards with collapsibles ---
 function renderCards(orgs) {
   const container = document.getElementById("cards");
@@ -128,7 +127,8 @@ function renderCards(orgs) {
     addCollapsible("Volunteer", org.opportunities, o =>
       `<li class="opp">${o.DateStart ?  o.DateStart.substring(5, 10)  : ""} ${o.DateEnd ? " -" + o.DateEnd.substring(5, 10)  : ""}
          ${o.Title || "Unnamed Opportunity"} 
-         <p>${o.Description || ""}</li>
+         <p>${o.Description || ""}
+         <p>${o.VolunteerURL ? "<a href='" + o.VolunteerURL + "' target='_blank'>Click for more opportunities</a>" :""}</li>
         `
     );
 
