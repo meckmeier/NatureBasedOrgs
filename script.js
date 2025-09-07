@@ -18,6 +18,7 @@ const chkTraining = document.getElementById("chkTraining");
 const chkSelfPaced = document.getElementById("chkSelfPaced");
 const toggleBtn = document.getElementById('filter-toggle');
 const sidebar = document.getElementById('sidebar');
+const filterOff = document.getElementById('filter-off');
 
 
 
@@ -99,6 +100,9 @@ chkSelfPaced.addEventListener("change", applyFilters);
   sidebar.classList.toggle('active');
 });
 
+ filterOff.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+ });
 
 // --- Render org cards with collapsibles ---
 function renderCards(orgs) {
@@ -109,7 +113,8 @@ function renderCards(orgs) {
     const card = document.createElement("div");
     card.className = "card";
 
-    let html = `<div class="card-col"><div class="col1"><h2>${org.Organization || "Unknown Org"}</h2>
+    let html = `<div class="card-col"><div class="col1"><h2>${org.Organization || "Unknown Org"}
+                ${org.HostOrg ? `<img src="images/WMN_Butterfly_d85e28.svg" alt="Host Org" class="host-icon"></img>` : ""}</h2>
                 ${org.OrgURL ? `<p><a href="${org.OrgURL}" target="_blank">Website</a></p>` : ""}
                 <p class="location">${org.Region || ""} |  ${org.County || "Statewide"} | ${org.City || ""} </p>
                 </div><div class="col2"><p>${org.About || ""}</p>`

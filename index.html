@@ -14,18 +14,8 @@
 <body>
    <header>
     <img src="./images/wisconsin-master-naturalist.svg" alt="Wisconsin Master Naturalist" style="width:200px">
-    
-    <h1>Nature Based Organizations</h1>
-    <nav>
-      <button id="filter-toggle">Filter</button>
-      <button  onclick="window.location.href='https://apps.ideal-logic.com/masternaturalist'"">Master Naturalist Portal</button>
-      <button  onclick="window.location.href='https://wimasternaturalist.org/'" target="_blank">Master Naturalist home</button>
-    </nav>
-    </header>
-    <main id="mainpage">
-       <aside id="sidebar" >
-       
-          <h2> &#128270; Filter</h2>
+    <aside id="sidebar" >
+          <h2><button id="filter-off">&lt;&lt;&lt;</button> Filter</h2>
           <label>Region: <select id="regionFilter">
               <option value="all">All Regions</option>
             </select></label><br><br>
@@ -42,9 +32,19 @@
           <label for="hasTraining"><input type="checkbox" id="chkTraining">Has Training Events</label><br>
           <label for="hasSelfPaced"><input type="checkbox" id="chkSelfPaced">Has Self Paced Training</label><br>   
         </aside>
- 
+    
+    <h1>Nature Based Organizations</h1>
+    <nav>
+      <button id="filter-toggle">Filter</button>
+      <button  onclick="window.location.href='https://apps.ideal-logic.com/masternaturalist'"">Master Naturalist Portal</button>
+      <button  onclick="window.location.href='https://wimasternaturalist.org/'" target="_blank">Master Naturalist home</button>
+    </nav>
+    </header>
+
+    <main id="mainpage">
       <div id="cards" class="card-container"></div>
     </main>
+    
   <script src="script.js"></script>
 </body>
 </html>
