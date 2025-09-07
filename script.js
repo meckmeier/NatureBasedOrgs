@@ -117,7 +117,7 @@ function renderCards(orgs) {
                 ${org.HostOrg ? `<img src="images/WMN_Butterfly_d85e28.svg" alt="Host Org" class="host-icon"></img>` : ""}</h2>
                 ${org.OrgURL ? `<p><a href="${org.OrgURL}" target="_blank">Website</a></p>` : ""}
                 <p class="location">${org.Region || ""} |  ${org.County || "Statewide"} | ${org.City || ""} </p>
-                </div><div class="col2"><p>${org.About || ""}</p>`
+                </div><div class="col2"><p>${org.HostOrg ? `HOST ORG: ` : ""}${org.About || ""}</p>`
 
 // Helper function to create collapsible sections
     function addCollapsible(title, records, formatter) {
