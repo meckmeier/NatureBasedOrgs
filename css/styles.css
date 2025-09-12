@@ -21,7 +21,7 @@ h1 {
 }
 
 h2 {
-  display:flex;
+  display:flex; /*using this to show the butterfly icon for host orgs*/
   margin-top: 1.5rem;
   font-size: 1.5rem;
 }
@@ -37,15 +37,13 @@ p
 {font-weight:400;}
 
 p.location{
-    font-family: "Fira Sans", sans-serif;
   font-weight: 200;
   font-style: normal;
   padding-bottom: 2em;
 }
 
-
- .card-container {
- display: grid;
+.card-container {
+  display: grid; /*use to show all the cards one after the other in a one column format*/
   grid-template-columns: 100%;
   gap: 1rem;
   flex: 1;
@@ -56,11 +54,10 @@ p.location{
 .card {
   background: #fff;
   padding: 1rem;
-  /*border-top: solid black 1px;*/
 }
 
 .card-col{
-  display:grid;
+  display:grid; /*if normal desktop - then 2 columns there is a media query to change this to one column below for mobile*/
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
 }
@@ -91,6 +88,7 @@ p.location{
 .hidden{
   display: none;
 }
+
 button{
   background-color: 24408e;
   color: rgb(46, 46, 46);
@@ -129,7 +127,6 @@ button:hover {
   }
 
 #mainpage{
-  
   transition: all 0.3s ease;
 }
 
@@ -153,7 +150,3 @@ src: url('Muli/muli.ttf') format('truetype');
   }
 
 }
-
-
-
-

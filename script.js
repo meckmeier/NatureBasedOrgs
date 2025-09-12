@@ -1,12 +1,10 @@
-// === Replace with your published CSV links ===
-//https://script.google.com/macros/s/AKfycbwPyF0IRD5mmciyXzvMYgVWqPma02dzrad6nfvEWRppxIuMHsq4AryX32BzXcqtNp1XJQ/exec
 
-const URLS = {
-  Organization: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=0&single=true&output=csv",
-  TrainingEvent: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=828882535&single=true&output=csv",
-  Opportunity: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=1000267791&single=true&output=csv",
-  SelfPacedTraining: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=1796065808&single=true&output=csv"
-};
+//const URLS = {
+//  Organization: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=0&single=true&output=csv",
+//  TrainingEvent: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=828882535&single=true&output=csv",
+//  Opportunity: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=1000267791&single=true&output=csv",
+//  SelfPacedTraining: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8IhuKkictR4g3jzM1PS_37qBkDcTwVlOhT4T9c0dDV9cV1VFpLhX076YLinxvzwBOmj-Y8AlbtL7y/pub?gid=1796065808&single=true&output=csv"
+//};
 
 // Grab DOM elements
 const regionFilter = document.getElementById("regionFilter");
@@ -21,7 +19,6 @@ const sidebar = document.getElementById('sidebar');
 const filterOff = document.getElementById('filter-off');
 
 
-
 let orgs=[];
 
 //replaces the papaparse code to use the constructed json instead.
@@ -32,7 +29,6 @@ async function loadData() {
   populateFilters(orgs);
   renderCards(orgs);
 }
-
 
 //*populate the filter dropdowns with unique values from the orgs
 function populateFilters(data) {
